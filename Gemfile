@@ -54,6 +54,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rswag-specs'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
@@ -88,3 +89,6 @@ gem "devise-api", "~> 0.1.3"
 gem "pundit", "~> 2.3"
 
 gem "rolify", "~> 6.0"
+
+gem 'rswag-api'
+gem 'rswag-ui'
