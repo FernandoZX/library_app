@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id           :bigint           not null, primary key
+#  title        :string
+#  author       :string
+#  genre        :string
+#  isbn         :string
+#  total_copies :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  title: MyString
+  author: MyString
+  genre: MyString
+  isbn: MyString
+  total_copies: 1
+
+two:
+  title: MyString
+  author: MyString
+  genre: MyString
+  isbn: MyString
+  total_copies: 1
