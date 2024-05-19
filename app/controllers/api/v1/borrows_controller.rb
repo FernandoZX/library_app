@@ -6,13 +6,14 @@ module Api
     #
     # @author  [Fernando Cabrera]
     class BorrowsController < ApplicationController
+      before_action :authorize_current_user
       before_action :set_book, only: %i[create return_book mark_returned mark_overdue]
       before_action :book_has_copies?, only: :create
       before_action :set_borrow, only: %i[show return_book mark_returned mark_overdue]
       before_action :returned?, only: :mark_returned
       before_action :was_returned?, only: %i[return_book mark_returned]
       before_action :overdue?, only: :mark_overdue
-      before_action :authorize_current_user
+      
 
       # GET /borrows
       # GET /borrows.json

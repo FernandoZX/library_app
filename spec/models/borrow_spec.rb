@@ -28,5 +28,15 @@
 require 'rails_helper'
 
 RSpec.describe Borrow do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create(:user) }
+  let(:book) { create(:book) }
+  subject { build(:borrow, user: user, book: book ) }
+
+  it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:book_id).with_message('Should pick a different book') }
+
+  it { is_expected.to validate_presence_of(:user_id) }
+  it { should belong_to(:user) }
+
+  it { is_expected.to validate_presence_of(:book_id) }
+  it { should belong_to(:book) }
 end

@@ -24,5 +24,9 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
+  it { is_expected.to validate_presence_of(:age) }
+  it { is_expected.to validate_numericality_of(:age).only_integer }
+  it { should have_many(:borrows).dependent(:destroy) }
 end

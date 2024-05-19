@@ -3,27 +3,24 @@
 require 'rails_helper'
 
 RSpec.describe BookPolicy, type: :policy do
-  subject { described_class }
+  subject { described_class.new(user, book) }
 
-  let(:user) { User.new }
+  let(:book) { Book.new }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'for a member user' do
+    let(:user) { build(:user) }
+
+    before { user.add_role(:member) }
+
+    it { is_expected.to permit_actions(%i[index show]) }
+    it { is_expected.to forbid_actions(%i[create update destroy]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'for a librarian user' do
+    let(:user) { build(:user) }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    before { user.add_role(:librarian) }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_all_actions }
   end
 end

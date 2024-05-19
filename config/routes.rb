@@ -83,6 +83,7 @@
 # Routes for Rswag::Api::Engine:
 
 Rails.application.routes.draw do
+  apipie
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   namespace :api do

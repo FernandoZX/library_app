@@ -53,6 +53,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'annotate', '~> 3.2'
   gem 'debug', platforms: %i[mri windows]
+  gem "factory_bot", "~> 6.4"
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails'
@@ -79,7 +81,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'pundit-matchers', '~> 3.1'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 6.0'
   gem 'simplecov'
 end
 
@@ -98,3 +102,5 @@ gem 'active_model_serializers', '~> 0.10.14'
 gem 'kaminari', '~> 1.2'
 
 gem 'jsonapi-resources', '~> 0.10.7'
+
+gem 'apipie-rails'

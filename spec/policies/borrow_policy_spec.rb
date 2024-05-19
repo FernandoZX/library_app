@@ -3,27 +3,26 @@
 require 'rails_helper'
 
 RSpec.describe BorrowPolicy, type: :policy do
-  subject { described_class }
+  subject { described_class.new(user, borrow) }
 
-  let(:user) { User.new }
+  let(:book) { create(:book) }
+  let(:borrow) { build(:borrow, user: user, book: book) }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'for a librarian user' do
+    let(:user) { build(:user) }
+
+    before { user.add_role(:librarian) }
+
+    it { is_expected.to forbid_actions(%i[create return_book]) }
+    it { is_expected.to permit_actions(%i[mark_returned mark_overdue]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'for a member user' do
+    let(:user) { build(:user) }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    before { user.add_role(:member) }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[create return_book]) }
+    it { is_expected.to forbid_actions(%i[mark_returned mark_overdue]) }
   end
 end

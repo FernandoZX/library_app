@@ -1,27 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe DashboardPolicy, type: :policy do
-  let(:user) { User.new }
+  subject { described_class.new(user, nil) }
 
-  subject { described_class }
+  context 'for a member user' do
+    let(:user) { build(:user) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    before { user.add_role(:member) }
+
+    it { is_expected.to forbid_actions(%i[total_books total_borrowed_books]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'for a librarian user' do
+    let(:user) { build(:user) }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+    before { user.add_role(:librarian) }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[total_books total_borrowed_books]) }
   end
 end

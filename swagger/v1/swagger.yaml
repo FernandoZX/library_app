@@ -3,7 +3,37 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/v1/dashboard/total_books":
+    get:
+      summary: total_books dashboard
+      responses:
+        '200':
+          description: successful
+  "/api/v1/dashboard/total_borrowed_books":
+    get:
+      summary: total_borrowed_books dashboard
+      responses:
+        '200':
+          description: successful
+  "/api/v1/dashboard/borrowed_books":
+    get:
+      summary: borrowed_books dashboard
+      responses:
+        '200':
+          description: successful
+  "/api/v1/dashboard/due_today_books":
+    get:
+      summary: due_today_books dashboard
+      responses:
+        '200':
+          description: successful
+  "/api/v1/dashboard/overdue_books":
+    get:
+      summary: overdue_books dashboard
+      responses:
+        '200':
+          description: successful
 servers:
 - url: https://{defaultHost}
   variables:

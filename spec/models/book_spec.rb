@@ -16,5 +16,11 @@
 require 'rails_helper'
 
 RSpec.describe Book do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to validate_presence_of(:author) }
+  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:isbn) }
+  it { is_expected.to validate_presence_of(:genre) }
+  it { is_expected.to validate_presence_of(:total_copies) }
+  it { is_expected.to validate_numericality_of(:total_copies).only_integer }
+  it { should have_many(:borrows).dependent(:destroy).counter_cache }
 end

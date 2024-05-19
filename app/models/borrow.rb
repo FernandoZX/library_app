@@ -31,7 +31,9 @@ class Borrow < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  validates :user, uniqueness: { scope: :book, message: 'Should pick a different book' }
+  validates :user_id, presence: true,
+                      uniqueness: { scope: :book_id, message: 'Should pick a different book' }
+  validates :book_id, presence: true
 
   after_create :decrement_copies
   after_update :increment_copies

@@ -21,9 +21,11 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
+    - [Run Migrations](#run-migrations)
     - [Usage](#usage)
     - [Run tests](#run-tests)
     - [Deployment](#deployment)
+    - [UpComing Features](#upcoming-features)
   - [👥 Authors ](#-authors-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support \</a](#️-show-your-support-a)
@@ -91,6 +93,13 @@
 - **sign in a user**
 - **log out**
 
+### PostMan Documentations <a name="postman"></a>
+
+```sh
+  librarian email: 'librarian@library-app.com', password:'password' demo librarian user
+  member email:'demo@library-app.com', password:'password' demo member user
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -131,6 +140,14 @@ Install this project with:
   yarn install
 ```
 
+### Run Migrations
+
+Install this project with:
+
+```sh
+  rails db:drop && rails db:create && rails db:migrate && rails db:seed 
+```
+
 ### Usage
 
 To run the project, execute the following command:
@@ -156,6 +173,10 @@ To run tests, run the following command:
 You can deploy this project using:
 
 - N/A
+
+### UpComing Features
+
+- React App Client soon!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

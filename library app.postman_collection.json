@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "b5cd47a0-9a73-4f8f-b100-38fea07b3a08",
+		"name": "library app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20788556"
+	},
+	"item": [
+		{
+			"name": "login via token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"librarian@library-app.com\",\r\n    \"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/tokens/sign_in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tokens",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7So3dc-2Bas4gW-t7JNK78ScPD2USRCaFzgwUs7LJ8ejx8jK4SiQYN1h9LrB",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/tokens/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tokens",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user info token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Z3EmKy3oh2W_tR9v8_z5Ys3Dx1Yqc1AsLDvFYFo7RTpMUQLo6QJyf9iBtELE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/tokens/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tokens",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "HeQxMtyJiPgnM5xd_mkUzD7oPb1mN9LModizQ39pdBcgRFAEvp3AiPX872vC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Revoke Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4NKPp5Sav_1phWzDBzG4Zqq4yXHocJi-DDQWLCCMn4znyWf1W9vUz5iayzZa",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/tokens/revoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tokens",
+						"revoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "ExyPzQ6UZQUtNcwSt_mqYfoHG8xqvaGTA4j-Jr8LxFqBANsrS6EbbnrU8yHo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"One Piece\",\r\n    \"author\": \"Eiichirō Oda\",\r\n    \"genre\": \"Anime\",\r\n    \"isbn\": \"93123123122-8\",\r\n    \"total_copies\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashbboard total_books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "zGEcTjhZttkhF67th94f4ejRzGB2aFSjRyjXcLGLj1zURgEg47_tgbLfeKeB",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/dashboard/total_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"dashboard",
+						"total_books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashbboard total borrowed books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XEcaYsxdBny3uSa4RRxRxTm9AaySzkySG9VVjz79Xgd38AB-LNPKirc_s4HW",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/dashboard/total_borrowed_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"dashboard",
+						"total_borrowed_books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrow a book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "HeQxMtyJiPgnM5xd_mkUzD7oPb1mN9LModizQ39pdBcgRFAEvp3AiPX872vC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"borrow\":{\r\n       \"book\":2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/borrows/mark_returned",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"borrows",
+						"mark_returned"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"One Piece\",\r\n    \"author\": \"Eiichirō Oda\",\r\n    \"genre\": \"Anime\",\r\n    \"isbn\": \"93123123122-8\",\r\n    \"total_copies\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Destroy a book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard overdue books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/dashboard/overdue_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"dashboard",
+						"overdue_books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard borrowed books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/dashboard/borrowed_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"dashboard",
+						"borrowed_books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard due today books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/dashboard/due_today_books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"dashboard",
+						"due_today_books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mark returned",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"borrow\":{\r\n       \"book\":2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/borrows/mark_returned",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"borrows",
+						"mark_returned"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "return book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"borrow\":{\r\n       \"book\":2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/borrows/return_book",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"borrows",
+						"return_book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mark overdue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d9BRbEbxiGz2YanKKDd8eYmoeZezo3t8pxSC1_fryxgoa3DrwXCB2Pxr2Rj9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"borrow\":{\r\n       \"book\":2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/borrows/mark_overdue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"borrows",
+						"mark_overdue"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
