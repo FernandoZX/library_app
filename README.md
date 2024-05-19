@@ -94,7 +94,7 @@
 - **log out**
 
 ### PostMan Documentations <a name="postman"></a>
-
+export the following file ``library app.postman_collection.json`` to postman application
 ```sh
   librarian email: 'librarian@library-app.com', password:'password' demo librarian user
   member email:'demo@library-app.com', password:'password' demo member user
