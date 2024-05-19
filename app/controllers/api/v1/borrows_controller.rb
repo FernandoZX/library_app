@@ -12,6 +12,7 @@ module Api
       before_action :returned?, only: :mark_returned
       before_action :was_returned?, only: %i[return_book mark_returned]
       before_action :overdue?, only: :mark_overdue
+      before_action :authorize_current_user
 
       # GET /borrows
       # GET /borrows.json
@@ -107,6 +108,10 @@ module Api
       # Only allow a list of trusted parameters through.
       def borrow_params
         params.require(:borrow).permit(:book)
+      end
+
+      def authorize_current_user
+        authorize(current_devise_api_token.resource_owner, policy_class: BorrowPolicy)
       end
     end
   end

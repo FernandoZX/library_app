@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class BorrowPolicy < ApplicationPolicy
+class DashboardPolicy < ApplicationPolicy
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
   # In most cases the behavior will be identical, but if updating existing
@@ -14,19 +12,12 @@ class BorrowPolicy < ApplicationPolicy
     # end
   end
 
-  def create?
-    user.has_role?(:member)
-  end
-
-  def return_book?
-    user.has_role?(:member)
-  end
-
-  def mark_returned?
+  def total_books?
     user.has_role?(:librarian)
   end
 
-  def mark_overdue?
+  def total_borrowed_books?
     user.has_role?(:librarian)
   end
+
 end
