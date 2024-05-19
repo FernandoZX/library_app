@@ -25,9 +25,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_022719) do
   end
 
   create_table "borrows", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.boolean "status"
+    t.datetime "start_date", default: "2024-05-19 02:59:25"
+    t.datetime "return_date"
+    t.datetime "due_date", default: "2024-06-02 02:59:25"
+    t.datetime "overdue_date"
+    t.boolean "returned", default: false
     t.bigint "user_id", null: false
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false

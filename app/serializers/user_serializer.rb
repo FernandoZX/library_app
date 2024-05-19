@@ -21,8 +21,6 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-require 'rails_helper'
-
-RSpec.describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :first_name, :last_name, :full_name, :email, :age
 end
